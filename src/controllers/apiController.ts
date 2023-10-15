@@ -20,5 +20,7 @@ export const createPhrase = async (req: Request, res: Response) => {
   let { author, txt } = req.body;
 
   let newPhrase = await Phrase.create({ author, txt });
+
+  res.status(201);
   res.json({ id: newPhrase.id, author, txt });
 };
